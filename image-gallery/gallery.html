@@ -1,0 +1,306 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 id="gallery-title">Gallery</h1>
+    <div class="image-grid" id="gallery-container"></div>
+    <br><br>
+    <button onclick="goBack()" class="back-btn">← Back</button>
+  </div>
+
+  <script>
+    function goBack() {
+      window.location.href = "gal.html";
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get("type");
+
+    const images = {
+      My: [
+        "images//mine//img1.jpeg",
+        "images//mine//img2.jpeg",
+        "images//mine//img3.jpeg",
+        "images//mine//img4.jpeg",
+        "images//mine//img5.jpeg",
+        "images//mine//img6.jpeg",
+        "images//mine//img7.jpeg",
+        "images//mine//img8.jpeg",
+        "images//mine//img9.jpeg",
+        "images//mine//img10.jpeg",
+        "images//mine//img11.jpeg",
+        "images//mine//img12.jpeg",
+        "images//mine//img13.jpeg",
+        "images//mine//img14.jpeg",
+        "images//mine//img15.jpeg",
+        "images//mine//img16.jpeg",
+        "images//mine//img17.jpeg",
+        "images//mine//img18.jpeg",
+        "images//mine//img19.jpeg",
+        "images//mine//img20.jpeg",
+        "images//mine//img21.jpeg",
+        "images//mine//img22.jpeg",
+        "images//mine//img23.jpeg",
+        "images//mine//img24.jpeg",
+        "images//mine//img25.jpeg",
+        "images//mine//img26.jpeg",
+        "images//mine//img27.jpeg",
+        "images//mine//img28.jpeg",
+        "images//mine//img29.jpeg",
+        "images//mine//img30.jpeg",
+        "images//mine//img31.jpeg",
+        "images//mine//img32.jpeg",
+        "images//mine//img33.jpeg",
+        "images//mine//img34.jpeg",
+        "images//mine//img35.jpeg",
+        "images//mine//img36.jpeg",
+        "images//mine//img37.jpeg",
+        "images//mine//img38.jpeg",
+        "images//mine//img39.jpeg",
+        "images//mine//img40.jpeg"
+      ],
+      Mine: [
+        "images/animals/a1.jpg",
+        "images/animals/a2.jpg",
+        "images/animals/a3.jpg"
+      ]
+    };
+
+    const title = document.getElementById("gallery-title");
+    const container = document.getElementById("gallery-container");
+
+    if (type && images[type]) {
+      title.textContent = `${type.charAt(0).toUpperCase() + type.slice(1)} Gallery`;
+      images[type].forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        container.appendChild(img);
+      });
+    } else {
+      title.textContent = "Invalid Selection";
+    }
+  </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" />
+
+  <!-- Fonts + Styles -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: linear-gradient(to bottom, #fff0f5, #ffe4ec);
+      color: #333;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #c9184a;
+      margin-bottom: 10px;
+    }
+
+    .gallery-message {
+      font-style: italic;
+      color: #800080;
+      margin-bottom: 24px;
+      font-size: 1rem;
+    }
+
+    /* MY Gallery - Pinterest Style */
+    .masonry {
+      column-count: 2;
+      column-gap: 12px;
+    }
+
+    .masonry a {
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 12px;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .masonry a:hover {
+      transform: scale(1.02);
+    }
+
+    .masonry img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    /* MINE Gallery - Couple Style */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+      padding-top: 10px;
+    }
+
+    .grid a {
+      display: block;
+      background: white;
+      border-radius: 16px;
+      padding: 8px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .grid a:hover {
+      transform: scale(1.03);
+    }
+
+    .grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    .back-btn {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background: linear-gradient(to right, #ff758f, #ffb199);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      .masonry {
+        column-count: 1;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="gallery-title">Gallery</h1>
+    <p id="gallery-message" class="gallery-message"></p>
+
+    <div id="gallery-container"></div>
+
+    <button onclick="goBack()" class="back-btn">← Back</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
+  <script>
+    function goBack() {
+      window.location.href = "gal.html";
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get("type");
+
+    const images = {
+      My: [
+        "images/mine/img1.jpeg", "images/mine/img2.jpeg", "images/mine/img3.jpeg", "images/mine/img4.jpeg",
+        "images/mine/img5.jpeg", "images/mine/img6.jpeg", "images/mine/img7.jpeg", "images/mine/img8.jpeg",
+        "images/mine/img9.jpeg", "images/mine/img10.jpeg", "images/mine/img11.jpeg", "images/mine/img12.jpeg",
+        "images/mine/img13.jpeg", "images/mine/img14.jpeg", "images/mine/img15.jpeg", "images/mine/img16.jpeg",
+        "images/mine/img17.jpeg", "images/mine/img18.jpeg", "images/mine/img19.jpeg", "images/mine/img20.jpeg",
+        "images/mine/img21.jpeg", "images/mine/img22.jpeg", "images/mine/img23.jpeg", "images/mine/img24.jpeg",
+        "images/mine/img25.jpeg", "images/mine/img26.jpeg", "images/mine/img27.jpeg", "images/mine/img28.jpeg",
+        "images/mine/img29.jpeg", "images/mine/img30.jpeg", "images/mine/img31.jpeg", "images/mine/img32.jpeg",
+        "images/mine/img33.jpeg", "images/mine/img34.jpeg", "images/mine/img35.jpeg", "images/mine/img36.jpeg",
+        "images/mine/img37.jpeg", "images/mine/img38.jpeg", "images/mine/img39.jpeg", "images/mine/img40.jpeg"
+      ],
+      Mine: [
+        "images/animals/a1.jpg",
+        "images/animals/a2.jpg",
+        "images/animals/a3.jpg"
+      ]
+    };
+
+    const title = document.getElementById("gallery-title");
+    const message = document.getElementById("gallery-message");
+    const container = document.getElementById("gallery-container");
+
+    if (type === "My") {
+      title.textContent = "My Gallery";
+      message.textContent = "Every picture here is just you — beautiful, effortless, and cherished 💖";
+
+      const masonry = document.createElement("div");
+      masonry.className = "masonry";
+
+      images.My.forEach((src, index) => {
+        const a = document.createElement("a");
+        a.href = src;
+        a.setAttribute("data-lightbox", "gallery");
+        a.setAttribute("data-title", `Photo ${index + 1}`);
+
+        const img = document.createElement("img");
+        img.src = src;
+        img.loading = "lazy";
+
+        a.appendChild(img);
+        masonry.appendChild(a);
+      });
+
+      container.appendChild(masonry);
+
+    } else if (type === "Mine") {
+      title.textContent = "Mine Gallery";
+      message.textContent = "Some frames where we’re smiling together";
+
+      const grid = document.createElement("div");
+      grid.className = "grid";
+
+      images.Mine.forEach((src, index) => {
+        const a = document.createElement("a");
+        a.href = src;
+        a.setAttribute("data-lightbox", "gallery");
+        a.setAttribute("data-title", `Us ${index + 1}`);
+
+        const img = document.createElement("img");
+        img.src = src;
+        img.loading = "lazy";
+
+        a.appendChild(img);
+        grid.appendChild(a);
+      });
+
+      container.appendChild(grid);
+
+    } else {
+      title.textContent = "Invalid Gallery";
+      message.textContent = "";
+    }
+  </script>
+</body>
+</html>

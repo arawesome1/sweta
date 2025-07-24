@@ -1,0 +1,211 @@
+/* Basic reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.container {
+  padding: 40px;
+}
+
+h1 {
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+}
+
+.image-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;  
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.image-grid img:hover {
+  transform: scale(1.1);
+}
+
+.back-btn {
+  background-color: #444;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #000;
+} */
+
+/* mobile responsve vewi start from here */
+/* @media (max-width: 768px) {        
+  .container {
+    padding: 20px;
+  }
+
+  .image-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .back-btn {
+    padding: 10px 20px;
+  }
+}
+/* Different mdia */ 
+/* @media (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  .back-btn {
+    padding: 8px 15px;
+  }
+} */ */
+/* Base Reset */
+/* Reset and Base Setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f9f9f9;
+  color: #222;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 24px 16px;
+  margin: 0 auto;
+}
+
+/* Page Title */
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: #3b0764;
+  font-weight: 600;
+  animation: fadeSlide 1s ease-out;
+}
+
+/* Image Grid Layout */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 16px;
+  padding: 10px;
+  width: 100%;
+  animation: fadeSlide 1s ease-out;
+}
+
+/* Individual Images */
+.image-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.image-grid img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+/* Back Button */
+.back-btn {
+  margin-top: 24px;
+  padding: 14px 28px;
+  background: linear-gradient(120deg, #6a11cb, #2575fc);
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.back-btn:hover {
+  transform: scale(1.03);
+  background: linear-gradient(120deg, #5b0ecb, #1d63e0);
+}
+
+/* Mobile-first Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .image-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 14px;
+  }
+
+  .back-btn {
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .image-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
+  }
+
+  .back-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Animation */
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

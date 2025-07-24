@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Select Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #ffe0ec, #fceaff);
+      text-align: center;
+      padding: 30px 16px;
+    }
+
+    h1 {
+      color: #7000ff;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 100%;
+      max-width: 300px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 12px;
+    }
+
+    .card h2 {
+      margin-bottom: 8px;
+      color: #444;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .top-button {
+      margin-top: 40px;
+      padding: 10px 20px;
+      background-color: #6a11cb;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    @media (min-width: 768px) {
+      .card-container {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Choose a Gallery</h1>
+    <div class="card-container">
+      <div class="card" onclick="goToGallery('My')">
+        <img src="girl.png" alt="Her Pic">
+        <h2>My</h2>
+        <p>Just you, looking beautiful 💫</p>
+      </div>
+      <div class="card" onclick="goToGallery('Mine')">
+        <img src="2person.png" alt="Us Together">
+        <h2>Mine</h2>
+        <p>Me with you</p>
+      </div>
+    </div>
+
+    <a href="birthday-cake.html"><button class="top-button">Back</button></a>
+  </div>
+
+  <script>
+    function goToGallery(type) {
+      window.location.href = `gallery.html?type=${type}`;
+    }
+  </script>
+</body>
+</html>
